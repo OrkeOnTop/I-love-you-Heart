@@ -2,7 +2,7 @@
 <html lang="lt">
 <head>
 <meta charset="UTF-8">
-<title>Heart Text Animation</title>
+<title>Heart O+G</title>
 
 <style>
 body {
@@ -44,9 +44,9 @@ function draw() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     ctx.fillStyle = "#ff7a7a";
-    ctx.font = "14px monospace";
+    ctx.font = "16px monospace";
 
-    let scale = 15 + Math.sin(t) * 2; // pulsavimas
+    let scale = 15 + Math.sin(t) * 2;
 
     for (let i = 0; i < Math.PI * 2; i += 0.1) {
         let pos = heartFunction(i);
@@ -54,7 +54,7 @@ function draw() {
         let x = canvas.width / 2 + pos.x * scale;
         let y = canvas.height / 2 - pos.y * scale;
 
-        ctx.fillText("I love you", x, y);
+        ctx.fillText("O+G", x, y);
     }
 
     t += 0.05;
