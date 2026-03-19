@@ -11,13 +11,13 @@ body {
     font-family: monospace;
 
     /* FONAS */
-    background-image: url("foto.jpg"); /* pakeisk į savo foto pavadinimą */
+    background-image: url("foto.jpg"); /* tavo fono nuotrauka */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* tamsus overlay kad tekstas matytųsi */
+/* tamsus overlay */
 body::after {
     content: "";
     position: fixed;
@@ -27,6 +27,26 @@ body::after {
     height: 100%;
     background: rgba(0,0,0,0.3);
 }
+
+/* PASPAUDŽIAMA NUOTRAUKA */
+.clickable-img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 220px;
+    border-radius: 20px;
+
+    z-index: 2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.clickable-img:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
 canvas {
     position: relative;
     z-index: 1;
@@ -36,6 +56,11 @@ canvas {
 </head>
 
 <body>
+
+<!-- NUOTRAUKA KAIP LINKAS -->
+<a href="https://tavo-linkas.lt" target="_blank">
+    <img src="foto2.jpg" class="clickable-img">
+</a>
 
 <canvas id="canvas"></canvas>
 
@@ -75,9 +100,9 @@ function draw() {
         ctx.fillText("I love you", x, y);
     }
 
-    // vidurys O+G
+    // O+G tekstas
     ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 80px monospace";
+    ctx.font = "bold 70px monospace";
     ctx.textAlign = "center";
 
     let pulse = 1 + Math.sin(t * 2) * 0.1;
